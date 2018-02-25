@@ -1,7 +1,7 @@
 {
   "name": "jquery-webpack",
   "version": "1.0.0",
-  "description": "a simplejquery webpack demo",
+  "description": "a simple jquery webpack demo",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --devtool eval --progress --colors",
@@ -32,9 +32,11 @@
     "uglifyjs-webpack-plugin": "^0.4.1",
     "url-loader": "^0.5.8",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.4.1",
+    "webpack-dev-server": "^2.9.7",
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0",
+    "zepto": "^1.2.0"
   }
 }

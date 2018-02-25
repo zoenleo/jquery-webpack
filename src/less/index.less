@@ -1,4 +1,26 @@
-@import url(../css/header.css);
-@import url(../css/reset.css);
-@import url(../css/sell.css);
-@import url(../css/themes/default/default.css);
+@import './variable.less';
+@import './reset.less';
+
+.container {
+    padding: 0;
+    height: 100%;
+    background: @bg-color;
+    .title {
+        font-weight: 100;
+        font-size: 18px;
+        height: 30px;
+        line-height: 30px;
+        background: @theme-color;
+        color: #333;
+        border-bottom: 1px solid @line-color;        
+    }
+    .note-list {
+        li {
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            margin: 4px 10px 0;
+            border-bottom: 1px solid @line-color;
+        }
+    }
+}

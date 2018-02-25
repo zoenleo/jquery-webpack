@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -13,16 +14,9 @@ module.exports = {
   resolve: {
     modules: ['node_modules'],
     alias: {
-      'jquery-ui': 'jquery-ui/ui/widgets',
-      'jquery-ui-css': 'jquery-ui/../../themes/base',
-      'jquery-datetimepicker-css': 'jquery-datetimepicker/jquery.datetimepicker.css',
-      'kindeditor-css': 'kindeditor/themes/default'
     }
   },
   module: {
-    noParse: function (content) {
-      return /kindeditor/.test(content);
-    },
     loaders: [{
       test: /\.json$/,
       loader: 'json-loader'
@@ -39,6 +33,9 @@ module.exports = {
       exclude: /node_modules/
     }, {
       test: /\.css$/,
+      include: [
+        path.resolve(__dirname, 'not_exist_path')
+      ],
       loader: 'style-loader!css-loader!autoprefixer-loader' //添加对样式表的处理
     }, {
       test: /\.less$/,
@@ -49,19 +46,25 @@ module.exports = {
     },{
       test: /\.html$/,
       loader: 'html-loader'
-    }]
+    },
+    { test: /\.css$/, loader: 'style-loader!css-loader' },
+    { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+    { test: /\.(woff|woff2)$/, loader: "url?prefix=font/&limit=5000" },
+    { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+    { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
+    ]
   },
   devServer: {
-    contentBase:  './dev'
+    contentBase: __dirname + '/public/',
+	inline: true,
+	port: 3000
   },
   plugins: [
     new CleanWebpackPlugin(['dev']),
     new webpack.BannerPlugin('Copyright By LZhong.'),
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      'window.$': 'jquery'
+      $: 'zepto',
+      'window.$': 'zepto'
     }),
     new UglifyJSPlugin({
       sourceMap: true
@@ -73,8 +76,8 @@ module.exports = {
       filename: 'index.html',
       template: './src/index.html',
       inject: false,
-      title: '一键上传淘宝',
-      chunks: ['main']
+      title: 'jquery webpack demo',
+      chunks: ['index']
     })
   ]
 };
