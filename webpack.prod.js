@@ -4,9 +4,13 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const target = process.argv[5];
+
 module.exports = {
   devtool: 'source-map', //配置生成Source Maps
-  entry: __dirname + '/index.js', //已多次提及的唯一入口文件
+  entry: {
+    [target]: __dirname + `/src/${target}.js`,
+  }, //已多次提及的唯一入口文件
   output: {
     path: __dirname + '/build', //打包后的文件存放的地方
     filename: '[name].bundle.js' //打包后输出文件的文件名
@@ -68,11 +72,11 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './src/index.html',
+      filename: target + '.html',
+      template: './src/' + target + '.html',
       inject: false,
-      title: 'jquery webpack demo',
-      chunks: ['index']
+      title: '最热小说网',
+      chunks: [target]
     })
   ]
 };

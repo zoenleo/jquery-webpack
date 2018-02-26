@@ -10,7 +10,8 @@
 ├── webpack.prod.js :build 相关配置文件
 ├── LICENSE :项目LICENSE
 ├── src
-│   ├── main.js :组件分发入口文件
+│   ├── category.html :页面入口
+│   ├── article.html :页面入口
 │   ├── index.html :页面入口
 └── build :打包后的项目代码
     ├── index.html
@@ -23,12 +24,12 @@
 
 安装依赖
 
-### `npm start`
+### `npm start -- --env ${target page name}`
 
-在开发环境运行项目，启动成功后，在浏览器打开`http://localhost:8080`可以访问。
+在开发环境运行项目，启动成功后，在浏览器打开`http://localhost:3000/${target page name}.html`可以访问。
 当你修改项目中的文件并保存后，应用进程会重新加载，如果有错误会在终端显示。
 
-### `npm run build`
+### `npm run build -- --env ${target page name}`
 
 运行打包程序，将项目打包为静态资源文件。
 
