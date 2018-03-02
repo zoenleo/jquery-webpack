@@ -1,3 +1,3 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import css from './less/index.less';
-import './js/index.js';
+import css from './less/article.less';
+import './js/article.js';

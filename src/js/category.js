@@ -1,7 +1,10 @@
-import $ from 'jquery';
+import $ from 'zepto';
 
-$(function() {
-  
+$(function () {
+    let $list = $('.noteList li');
+    [].reverse.call($list);
+    let newNoteList = $('<ul class="note-list noteList"><ul>');
+    
 });
 
 

@@ -1,7 +1,7 @@
-import $ from 'jquery';
+import $ from 'zepto';
 
-$(function() {
-  
+$(function () {
+
 });
 
 

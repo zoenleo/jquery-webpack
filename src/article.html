@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>article</title>
+    <title>热门小说网</title>
     <meta charset="UTF-8">
-    <meta name="keywords" content="小说 一念永恒 飞剑问道">
+    <meta name="keywords" content="热门小说 小说 一念永恒 飞剑问道">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <script src="./main.bundle.js"></script>
+    <script src="./article.bundle.js"></script>
 </head>
 <body>
     <div class='container'>
-        <h1 class='title'>热门小说</h1>
-        <ul>
-            <li>
-                <a href="${basePath}/note/toCategory/38_38857">一念永恒</a>
-            </li>
-            <li>
-                <a href="${basePath}/note/toCategory/79_79875">飞剑问道</a>
-            </li>
-        </ul>
+        <h1 class='title'>${article.title}</h1>
+        <p>${article.content}</p>
     </div>
 </body>
 </html>
