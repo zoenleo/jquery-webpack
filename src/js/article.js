@@ -8,6 +8,15 @@ $(function () {
     function setState(state) {
         window.localStorage.setItem('state', JSON.stringify(state));
     }
+    function getScrollTop(){
+        var scrollTop=0;   
+        if(document.documentElement&&document.documentElement.scrollTop){   
+            scrollTop=document.documentElement.scrollTop;   
+        }else if(document.body){   
+            scrollTop=document.body.scrollTop;   
+        }   
+        return scrollTop;   
+    }   
     (function() {
         //初始化
         const PAGE_DATA = window.PAGE_DATA;
@@ -39,14 +48,14 @@ $(function () {
             $nightSetting.children('.day').show();
             $('.article').css({
                 backgroundColor: '#333',
-                color: '#fff'
+                color: '#999'
             });
             let state = getState();
             state.night = true;
             setState(state);
         })();
-        $('.content').css('line-height', (state.lineHeight || 18)  + 'px');
-        $('html').css('font-size', (state.fontSize || 22) + 'px');
+        $('html').css('font-size', (state.fontSize || 18) + 'px');
+        $('.content').css('line-height', (state.lineHeight || 30)  + 'px');
     })();
    
     //页面功能
@@ -57,12 +66,12 @@ $(function () {
         const clickY = e.clientY;
         if(clickY <= prevY) {
             //上一页
-            let targetY = $('html').scrollTop() - clientHeight + 30;
+            let targetY = getScrollTop() - clientHeight;
             window.scrollTo(0, targetY);
         }
         else if(clickY >= nextY) {
             //下一页
-            let targetY = $('html').scrollTop() + clientHeight - 30;
+            let targetY = getScrollTop() + clientHeight;
             window.scrollTo(0, targetY);
         }
         else {
@@ -89,13 +98,13 @@ $(function () {
     });
     $('.lineAdd').on('click', function() {
         let state = getState();
-        state.lineHeight = (state.lineHeight || 22) + 2;
+        state.lineHeight = (state.lineHeight || 30) + 2;
         $('.content').css('line-height', state.lineHeight + 'px');
         setState(state);
     });
     $('.lineDel').on('click', function() {
         let state = getState();
-        state.lineHeight = (state.lineHeight || 22) - 2;
+        state.lineHeight = (state.lineHeight || 30) - 2;
         $('.content').css('line-height', state.lineHeight + 'px');
         setState(state);
     });
@@ -107,7 +116,7 @@ $(function () {
             $nightSetting.children('.day').show();
             $('.article').css({
                 backgroundColor: '#333',
-                color: '#fff'
+                color: '#999'
             });
             state.night = true;
         }
