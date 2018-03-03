@@ -74,7 +74,7 @@ module.exports = {
       filename: target + '.html',
       template: './src/' + target + '.html',
       inject: false,
-      title: '最热小说网',
+      title: '爱读吧',
       chunks: [target]
     })
   ]

@@ -9,37 +9,82 @@
 </head>
 <body>
     <div class='container article'>
-            <div class="row header container">
-                <div class="col-8">
-                </div>
-                <div class="col-2 right-wrapper">
-                    <a href="${basePath}/note/toCategory/${article.articleId}">
-                        <i class="iconfont">&#xe701;</i>
-                    </a>
-                </div>
-                <div class="col-2 right-wrapper">
-                    <a href="${basePath}/">
-                        <i class="iconfont">&#xe759;</i>
-                    </a>
-                </div>
-            </div>
-            <div class='section'>
-                <h2 class='title'>${article.title}</h2>
-                <p class='content'>
-                    ${article.content}
-                </p>
-                <div class='page-btn'>
-                    <a href="javascript: void(0);" class="prevPage">上一篇</a>
-                    <a href="javascript: void(0);" class="nextPage">下一篇</a>
-                </div>
+        <div class='section'>
+            <h2 class='title'>${article.title}</h2>
+            <p class='content'>
+                ${article.content}
+            </p>
+            <div class='page-btn'>
+                <a href="javascript: void(0);" class="prevPage">上一篇</a>
+                <a href="javascript: void(0);" class="nextPage">下一篇</a>
             </div>
         </div>
-        <script>
-            var PAGEDATA = {};
-            PAGEDATA.ARTICLE_ORDER = '${article.order}';
-            PAGEDATA.ARTICLE_PAGE_COUNT = '${article.pageCount}';
-            var API = {};
-            API.PAGE_LINK = '${basePath}/note/toArticleByOrder/${articleId}/';
-        </script>
+    </div>
+    <div class='cover'>
+        <div class="prev">
+            <a>
+                上一页
+            </a>
+        </div>
+        <div class="middle">
+            菜单
+        </div>
+        <div class="next">
+            <a>
+                下一页
+            </a>
+        </div>
+    </div>
+    <div class='menu container'>
+        <div class="row header">
+            <div class="col-8 page-btn">
+                <a href="javascript: void(0);" class="prevPage">上一篇</a>
+                <a href="javascript: void(0);" class="nextPage">下一篇</a>
+            </div>
+            <div class="col-2 right-wrapper">
+                <a href="${basePath}/note/toCategory/${article.articleId}">
+                    <i class="iconfont">&#xe701;</i>
+                </a>
+            </div>
+            <div class="col-2 right-wrapper">
+                <a href="${basePath}/">
+                    <i class="iconfont">&#xe759;</i>
+                </a>
+            </div>
+        </div>
+        <div class="middle menuToggle">
+            <div class="night-setting nightSetting">
+                <i class="iconfont night">&#xe611;</i>
+                <i class="iconfont day" style='display: none'>&#xe60f;</i>
+            </div>
+        </div>
+        <div class="row setting">
+            <div class="col-6">
+                <div class="setting-btn font-setting row">
+                    <div class="col-6 fontAdd"><i class="iconfont">&#xe65b;</i></div>
+                    <div class="col-6 fontDel"><i class="iconfont">&#xe65a;</i></div>
+                </div>
+                <!-- <div class="setting-btn">
+                    字体颜色
+                </div> -->
+            </div>
+            <div class="col-6">
+                <div class="setting-btn font-setting row">
+                    <div class="col-6 lineAdd"><i class="iconfont">&#xe6dd;</i></div>
+                    <div class="col-6 lineDel"><i class="iconfont">&#xe672;</i></div>
+                </div>
+                <!-- <div class="setting-btn">
+                    字体颜色
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <script>
+        var PAGE_DATA = {};
+        PAGE_DATA.ARTICLE_ORDER = '${article.order}';
+        PAGE_DATA.ARTICLE_PAGE_COUNT = '${article.pageCount}';
+        var API = {};
+        API.PAGE_LINK = '${basePath}/note/toArticleByOrder/${articleId}/';
+    </script>
 </body>
 </html>
