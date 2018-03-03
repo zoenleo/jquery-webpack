@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>热门小说网</title>
+    <title>爱读吧</title>
     <meta charset="UTF-8">
     <meta name="keywords" content="热门小说 小说 一念永恒 飞剑问道">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <script src="./article.bundle.js"></script>
 </head>
 <body>
-    <div class='container'>
-        <h1 class='title'>${article.title}</h1>
-        <p>${article.content}</p>
-    </div>
+    <div class='container article'>
+            <div class="row header container">
+                <div class="col-8">
+                </div>
+                <div class="col-2 right-wrapper">
+                    <a href="${basePath}/note/toCategory/${article.articleId}">
+                        <i class="iconfont">&#xe701;</i>
+                    </a>
+                </div>
+                <div class="col-2 right-wrapper">
+                    <a href="${basePath}/">
+                        <i class="iconfont">&#xe759;</i>
+                    </a>
+                </div>
+            </div>
+            <div class='section'>
+                <h2 class='title'>${article.title}</h2>
+                <p class='content'>
+                    ${article.content}
+                </p>
+                <div class='page-btn'>
+                    <a href="javascript: void(0);" class="prevPage">上一篇</a>
+                    <a href="javascript: void(0);" class="nextPage">下一篇</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            var PAGEDATA = {};
+            PAGEDATA.ARTICLE_ORDER = '${article.order}';
+            PAGEDATA.ARTICLE_PAGE_COUNT = '${article.pageCount}';
+            var API = {};
+            API.PAGE_LINK = '${basePath}/note/toArticleByOrder/${articleId}/';
+        </script>
 </body>
 </html>

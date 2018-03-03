@@ -37,6 +37,9 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
+    "exports-loader": "^0.7.0",
+    "script-loader": "^0.7.2",
+    "webpack-zepto": "^0.0.1",
     "zepto": "^1.2.0"
   }
 }

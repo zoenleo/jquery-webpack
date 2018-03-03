@@ -22,6 +22,9 @@ module.exports = {
   },
   module: {
     loaders: [{
+      test: require.resolve('zepto'),
+      loader: 'exports-loader?window.Zepto!script-loader'
+    }, {
       test: /\.json$/,
       loader: 'json-loader'
     }, {
@@ -61,10 +64,6 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['build']),
     new webpack.BannerPlugin('Copyright By LZhong.'),
-    new webpack.ProvidePlugin({
-      $: 'zepto',
-      'window.$': 'zepto'
-    }),
     new UglifyJSPlugin({
       sourceMap: true
     }),

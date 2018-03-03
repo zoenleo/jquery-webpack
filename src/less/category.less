@@ -2,31 +2,56 @@
 @import './reset.less';
 
 .article {
-    padding: 10px 0;
+    padding: 0;
     min-height: 100%;
     background: @bg-color;
     .header {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        right: 0;
         height: 60px;
         line-height: 60px;
-        background-color: #e2e2e2;
+        background: @bg-color;
+        margin: auto;
+        padding: 0;
+        .title {
+            .text-limit();
+            line-height: 60px;            
+            color: @font-color;
+            font-weight: 100;
+            font-size: 20px;
+        }
         .right-wrapper {
-            i {
-                font-size: 20px;
+            text-align: center;
+            a {
+                display: block;                
+                i {
+                    font-size: 20px;
+                    color: @font-color;
+                }
+            }
+            .reverse-btn {
+                font-weight: 900;
+                padding-top: 1px;
             }
         }
     }
     .note-list {
         padding-top: 60px;
         li {
+            .text-limit();            
             height: 30px;
             line-height: 30px;
-            font-size: 14px;
+            font-size: 18px;
             margin: 4px 10px 0;
             border-bottom: 1px solid @line-color;
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                color: @link-color;
+            }
         }
     }
 }

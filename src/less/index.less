@@ -1,26 +1,50 @@
 @import './variable.less';
 @import './reset.less';
 
-.container {
+.article {
     padding: 0;
     min-height: 100%;
     background: @bg-color;
-    .title {
-        font-weight: 100;
-        font-size: 18px;
-        height: 30px;
-        line-height: 30px;
-        background: @theme-color;
-        color: #333;
-        border-bottom: 1px solid @line-color;        
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        line-height: 60px;
+        background: @bg-color;
+        margin: auto;
+        padding: 0;
+        .title {
+            .text-limit();
+            line-height: 60px;            
+            color: @font-color;
+            font-weight: 100;
+            font-size: 20px;
+        }
+        .right-wrapper {
+            text-align: center;
+            i {
+                font-size: 20px;
+                color: @font-color;
+            }
+        }
     }
     .note-list {
+        padding-top: 60px;
         li {
             height: 30px;
             line-height: 30px;
-            font-size: 14px;
+            font-size: 18px;
             margin: 4px 10px 0;
             border-bottom: 1px solid @line-color;
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                color: @link-color;
+                .text-limit();                
+            }
         }
     }
 }
