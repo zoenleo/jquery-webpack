@@ -11,7 +11,7 @@
     <div class='container article'>
         <div class="row header container">
             <div class="col-8">
-                <h1 class='title'>标题标题标题标题标题标题标题标题标题标题</h1>
+                <h1 class='title'>${articleTitle}</h1>
             </div>
             <div class="col-2 right-wrapper">
                 <a href="javascript: void(0);" class="reverseBtn reverse-btn">
@@ -25,18 +25,11 @@
             </div>
         </div>
         <ul class='note-list noteList'>
+            [#list categoryList as it]
             <li>
-                <a href="${basePath}/note/toCategory/79_79875">章节1</a>
+                <a href="${basePath}/note/toArticle/${articleId}/${it.id}">${it.text}</a>
             </li>
-            <li>
-                <a href="${basePath}/note/toCategory/79_79875">章节2</a>
-            </li>
-            <li>
-                <a href="${basePath}/note/toCategory/79_79875">章节2</a>
-            </li>
-            <li>
-                <a href="${basePath}/note/toCategory/79_79875">章节2</a>
-            </li>
+            [/#list]
         </ul>
     </div>
     <script>
