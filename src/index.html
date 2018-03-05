@@ -18,19 +18,23 @@
         </div>
         <ul class='note-list noteList'>
             <li>
-                <a href="${basePath}/note/toCategory/feijwd">飞剑问道</a>
-            </li>
-            <li>
-                <a href="${basePath}/note/toCategory/shengx">圣墟</a>
-            </li>
-            <li>
-                <a href="${basePath}/note/toCategory/zhizjh">至尊剑皇</a>
-            </li>
-            <li>
-                <a href="${basePath}/note/toCategory/jilsh">祭炼山河</a>
+                <a class="book-name" href="${basePath}/note/toCategory/${it.articleFlag}">${it.articleTitle}</a>
+                <div>
+                    最新章节:
+                    <a href="${basePath}/note/toArticle/${it.articleFlag}/${it.categoryId}">${it.newCategory}</a>
+                </div>
             </li>
         </ul>
     </div>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e32d6551e39a89c33ee32cee6e21fff0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </body>
 
 </html>
