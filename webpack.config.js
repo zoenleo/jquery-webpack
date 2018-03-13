@@ -4,12 +4,12 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const target = process.argv[7];
-
 module.exports = {
   devtool: 'source-map', //配置生成Source Maps
   entry: {
-    [target]: __dirname + `/src/${target}.js`
+    index: __dirname + `/src/index.js`,
+    article: __dirname + `/src/article.js`,
+    category: __dirname + `/src/category.js`
   }, //已多次提及的唯一入口文件
   output: {
     path: __dirname + '/dev', //打包后的文件存放的地方
@@ -76,11 +76,25 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('development')
     }),
     new HtmlWebpackPlugin({
-      filename: `${target}.html`,
-      template: `./src/${target}.html`,
+      filename: `index.html`,
+      template: `./src/index.html`,
       inject: false,
       title: '爱读吧',
-      chunks: [target]
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      filename: `article.html`,
+      template: `./src/article.html`,
+      inject: false,
+      title: '爱读吧',
+      chunks: ['article']
+    }),
+    new HtmlWebpackPlugin({
+      filename: `category.html`,
+      template: `./src/category.html`,
+      inject: false,
+      title: '爱读吧',
+      chunks: ['category']
     })
   ]
 };
