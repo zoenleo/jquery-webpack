@@ -28,7 +28,7 @@ $(function () {
         if (prePage > 0) {
             $('.prevPage').show().attr('href', API.PAGE_LINK + prePage);
         }
-        if (nextPage < pageTotal) {
+        if (cur < pageTotal) {
             $('.nextPage').show().attr('href', API.PAGE_LINK + nextPage);
         }
         const $content = $('.content');
