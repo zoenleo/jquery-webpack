@@ -16,15 +16,35 @@
                 <h1 class='title'>爱读吧，你最爱的精选小说网~</h1>
             </div>
         </div>
-        <ul class='note-list noteList'>
-            <li>
-                <a class="book-name" href="${basePath}/note/toCategory/${it.articleFlag}">${it.articleTitle}</a>
-                <div>
-                    最新章节:
-                    <a href="${basePath}/note/toArticle/${it.articleFlag}/${it.categoryId}">${it.newCategory}</a>
+        <div id="accordion" class='content'>
+            <!-- [#list themeList as theme] -->
+            <div class="card">
+                <div class="card-header" id="heading${theme_index}">
+                    <h5 class="mb-0">
+                        <button class="line-full-btn btn btn-link" data-toggle="collapse" data-target="#collapse${theme_index}" aria-expanded="true" aria-controls="collapse${theme_index}">
+                             ${theme.theme}
+                        </button>
+                    </h5>
                 </div>
-            </li>
-        </ul>
+
+                <div id="collapse${theme_index}" class="collapse" aria-labelledby="heading${theme_index}" data-parent="#accordion">
+                    <div class="card-body">
+                        <ul class='note-list noteList'>
+                            <!-- [#list theme.articleList as it] -->
+                            <li>
+                                <a class="book-name" href="${basePath}/note/toCategory/${it.articleFlag}">${it.articleTitle}</a>
+                                <div>
+                                    最新章节:
+                                    <a href="${basePath}/note/toArticle/${it.articleFlag}/${it.categoryId}">${it.newCategory}</a>
+                                </div>
+                            </li>
+                            <!-- [/#list] -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- [/#list] -->
+        </div>
     </div>
     <script>
         var _hmt = _hmt || [];

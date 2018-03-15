@@ -10,6 +10,7 @@
         top: 0;
         left: 0;
         right: 0;
+        z-index: 1;
         height: 60px;
         line-height: 60px;
         background: @bg-color;
@@ -30,25 +31,33 @@
             }
         }
     }
-    .note-list {
+    .content {
         padding-top: 60px;
-        li {
-            line-height: 30px;
-            font-size: 18px;
-            margin: 4px 10px 0;
-            border-bottom: 1px solid @line-color;
-            .book-name {
-                display: block;
-                width: 100%;
-                height: 100%;
-                color: @link-color;
-                .text-limit();                
-            }
-            div {
-                .text-limit();
-                color: #333;
-                a {
-                    color: @font-color;
+        .line-full-btn {
+            width: 100%;
+            text-align: left;
+            font-size: 20px;
+            color: #666;
+        }
+        .note-list {
+            li {
+                line-height: 30px;
+                font-size: 18px;
+                margin: 4px 10px 0;
+                border-bottom: 1px solid @line-color;
+                .book-name {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    color: @link-color;
+                    .text-limit();                
+                }
+                div {
+                    .text-limit();
+                    color: #333;
+                    a {
+                        color: @font-color;
+                    }
                 }
             }
         }

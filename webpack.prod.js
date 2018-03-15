@@ -3,7 +3,7 @@ const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const ProvidePlugin = webpack.ProvidePlugin;
 
 module.exports = {
   devtool: 'source-map', //配置生成Source Maps
@@ -65,6 +65,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['build']),
     new webpack.BannerPlugin('Copyright By LZhong.'),
+    new ProvidePlugin({
+      $: 'zepto',
+      Popper: ['popper.js', 'default']
+    }),
     new UglifyJSPlugin({
       sourceMap: true
     }),
