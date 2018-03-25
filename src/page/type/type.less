@@ -1,35 +1,13 @@
-@import './variable.less';
-@import './reset.less';
+@import '../variable.less';
+@import '../reset.less';
 
 .article {
-    padding: 0;
-    min-height: 100%;
-    background: @bg-color;
     .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1;
         height: 60px;
         line-height: 60px;
-        background: @bg-color;
-        margin: auto;
-        padding: 0;
-        .title {
-            .text-limit();
-            line-height: 60px;            
-            color: @font-color;
-            font-weight: 100;
-            font-size: 20px;
-        }
-        .right-wrapper {
-            text-align: center;
-            i {
-                font-size: 20px;
-                color: @font-color;
-            }
-        }
+        background: @theme-color;
+        text-align: center;
+        color: #fff;
     }
     .content {
         padding-top: 60px;
@@ -40,11 +18,15 @@
             color: #666;
         }
         .note-list {
-            li {
+            .list-item {
                 line-height: 30px;
                 font-size: 18px;
-                margin: 4px 10px 0;
+                padding: 10px 0;
                 border-bottom: 1px solid @line-color;
+                .note-image {
+                    width: 69px;
+                    height: 92px;
+                }
                 .book-name {
                     display: block;
                     width: 100%;
@@ -60,6 +42,16 @@
                     }
                 }
             }
+        }
+    }
+    .footer {
+        margin-top: 50px;
+        height: 70px;
+        line-height: 70px;
+        background-color: @theme-color;
+        text-align: center;
+        a {
+            color: #fff;
         }
     }
 }

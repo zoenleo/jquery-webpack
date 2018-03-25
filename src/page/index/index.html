@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>爱读吧</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="小说 一念永恒 飞剑问道">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <script src="./index.bundle.js?v=323"></script>
+</head>
+
+<body>
+    <div class='container article'>
+        <div class="row header">
+            <div class="col-3">
+
+            </div>
+            <div class="col-6">
+                爱读吧
+            </div>
+            <div class="col-3">
+
+            </div>
+        </div>
+        <div class='row nav-tab'>
+            <div class="col-6">
+                    <a href="${basePath}/index">首页</a>
+            </div>
+            <div class="col-6">
+                <a href="${basePath}/note/toType">分类</a>
+            </div>
+        </div>
+        <div class='content'>
+            <div class="section">
+                <div class="title">
+                    热门小说推荐
+                </div>
+                <div class="hot-wrapper">
+                    <ul class='hot-list'>
+                        <!-- [#list hotNoteList as it] -->
+                        <li class="hot-item">
+                            <a href="${basePath}/note/toCategory/${it.id}"><img src="${basePath}/note/noteImage/${it.id}" alt="$${it.name}" /></a>
+                            <a class="book-name" href="${basePath}/note/toCategory/${it.id}">${it.name}</a>
+                        </li> 
+                        <!-- [/#list] -->
+                    </ul>
+                </div>
+            </div>
+            <div class="section">
+                <div class="title">
+                    热门小说推荐
+                </div>
+                <div class='note-list'>
+                    <!-- [#list recommendNoteList as it] -->
+                    <div class="media note-item">
+                        <img class="mr-3" src="${basePath}/note/noteImage/${it.id}" alt="${it.name}" width='60' height='79' />
+                        <div class="media-body note-item-right">
+                            <a class="book-name " href="${basePath}/note/toCategory/${it.id} ">${it.name}</a>
+                            <div>作者:${it.author}</div>
+                        </div>
+                    </div>
+                    <!-- [/#list] -->
+                </div>
+            </div>
+        </div>
+        <div class="row footer">
+            <div class="col-12">
+                <a href="${basePath}/index">首页</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e32d6551e39a89c33ee32cee6e21fff0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</body>
+
+</html>

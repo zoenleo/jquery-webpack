@@ -1,3 +1,3 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import css from './less/category.less';
-import './js/category.js';
+import css from './page/category/category.less';
+import './page/category/category.js';

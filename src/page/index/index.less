@@ -1,0 +1,89 @@
+@import '../variable.less';
+@import '../reset.less';
+
+.article {
+    .header {
+        height: 60px;
+        line-height: 60px;
+        background: @theme-color;
+        text-align: center;
+        color: #fff;
+    }
+    .nav-tab {
+        height: 50px;
+        line-height: 50px;
+        background-color: #fff;
+        text-align: center;
+        border-bottom: 1px solid @border-color;
+        a {
+            color: #333;
+            font-size: 14px;
+        }
+    }
+    .content {
+        .section{
+            margin-top: 10px;
+            border: 1px solid @line-color;
+            background-color: #fff;
+            .title {
+                border-bottom: 1px solid @line-color;
+                padding: 5px 10px;
+            }
+        }
+        .line-full-btn {
+            width: 100%;
+            text-align: left;
+            font-size: 20px;
+            color: #666;
+        }
+        .hot-wrapper {
+            overflow: hidden;
+            height: 170px;
+            .hot-list {
+                .text-limit();
+                overflow-x: scroll;
+                padding: 10px 10px 0 10px;
+                .hot-item {
+                    display: inline-block;
+                    text-align: center;
+                    width: 114px;                    
+                    padding: 0 10px 20px 0;
+                    .book-name {
+                        display: block;
+                        .text-limit();
+                    }
+                    a {
+                        color: #333;
+                    }
+                    img {
+                        width: 104px;
+                        height: 130px;
+                    }
+                }
+            }
+        }
+        .note-list {
+            .note-item {
+                border-bottom: 1px solid @line-color;
+                padding: 10px;
+                .note-item-right {
+                    color: #666;
+                    .text-limit();
+                    a {
+                        color: #333;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        margin-top: 50px;
+        height: 70px;
+        line-height: 70px;
+        background-color: @theme-color;
+        text-align: center;
+        a {
+            color: #fff;
+        }
+    }
+}

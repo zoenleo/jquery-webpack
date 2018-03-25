@@ -8,6 +8,7 @@ module.exports = {
   devtool: 'source-map', //配置生成Source Maps
   entry: {
     index: __dirname + '/src/index.js',
+    type: __dirname + '/src/type.js',
     article: __dirname + '/src/article.js',
     category: __dirname + '/src/category.js'
   }, //已多次提及的唯一入口文件
@@ -81,21 +82,28 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/index.html',
+      template: './src/page/index/index.html',
       inject: false,
       title: '爱读吧',
       chunks: ['index']
     }),
     new HtmlWebpackPlugin({
+      filename: 'type.html',
+      template: './src/page/type/type.html',
+      inject: false,
+      title: '爱读吧',
+      chunks: ['type']
+    }),
+    new HtmlWebpackPlugin({
       filename: 'article.html',
-      template: './src/article.html',
+      template: './src/page/article/article.html',
       inject: false,
       title: '爱读吧',
       chunks: ['article']
     }),
     new HtmlWebpackPlugin({
       filename: 'category.html',
-      template: './src/category.html',
+      template: './src/page/category/category.html',
       inject: false,
       title: '爱读吧',
       chunks: ['category']

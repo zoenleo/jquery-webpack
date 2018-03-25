@@ -8,13 +8,14 @@ const ProvidePlugin = webpack.ProvidePlugin;
 module.exports = {
   devtool: 'source-map', //配置生成Source Maps
   entry: {
-    index: __dirname + `/src/index.js`,
+    index: __dirname + '/src/index.js',
+    type: __dirname + '/src/type.js',
     article: __dirname + `/src/article.js`,
     category: __dirname + `/src/category.js`
   }, //已多次提及的唯一入口文件
   output: {
     path: __dirname + '/build', //打包后的文件存放的地方
-    filename: '[name].bundle.js' //打包后输出文件的文件名
+    filename: '[name].bundle.js?v=[hash]' //打包后输出文件的文件名
   },
   resolve: {
     modules: ['node_modules'],
@@ -76,25 +77,40 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new HtmlWebpackPlugin({
-      filename: `index.html`,
-      template: `./src/index.html`,
+      filename: 'index.html',
+      template: './src/page/index/index.html',
       inject: false,
       title: '爱读吧',
       chunks: ['index']
     }),
     new HtmlWebpackPlugin({
-      filename: `article.html`,
-      template: `./src/article.html`,
+      filename: 'type.html',
+      template: './src/page/type/type.html',
       inject: false,
       title: '爱读吧',
-      chunks: ['article']
+      chunks: ['type']
+    }),
+    new HtmlWebpackPlugin({
+      filename: `article.html`,
+      template: `./src/page/article/article.html`,
+      inject: false,
+      title: '爱读吧',
+      chunks: ['article'],
+      minify: {
+        collapseWhitespace: true,
+      },
+      hash: true,
     }),
     new HtmlWebpackPlugin({
       filename: `category.html`,
-      template: `./src/category.html`,
+      template: `./src/page/category/category.html`,
       inject: false,
       title: '爱读吧',
-      chunks: ['category']
+      chunks: ['category'],
+      minify: {
+        collapseWhitespace: true,
+      },
+      hash: true,
     })
   ]
 };
